@@ -4,27 +4,73 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="plugin/highlight/atom-one-light.min.css">
+		<style>
+			h1, h2, h3, p {
+				font-family: "Vollkorn", serif !important;
+				font-optical-sizing: auto;
+				font-style: normal;
+				text-transform: none !important;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-					<div>Reveal.js</div>
-					<div>Prezentacje dla developerów</div>
-				</section>
-				<section>
-				<pre></pre>					
+				<section data-markdown>
+<textarea data-template>
+![reveal](img/reveal-black-text.svg) <!-- .element width="600px" -->
+
+## Szybkie prezentacje dla deweloperów
+
+_Krzysztof Komorowski_
+
+---
+![reveal](img/reveal-black-text.svg)
+
+![html](img/html.svg) <!-- .element class="fragment" width="200px" -->
+![js](img/javascript.svg) <!-- .element class="fragment" width="200px" -->
+![css](img/css.svg) <!-- .element class="fragment" width="200px" -->
+![md](img/md.svg) <!-- .element class="fragment" width="200px" -->
+---
+```bash[2|5-6|9]
+# Edytowalne w każdym edytorze tekstu
+❯ vim index.html
+
+# Proste zarządzanie wersjami
+❯ git status
+❯ git commit -am "Prezentacje dla deweloperów"
+
+# Szybkie udostępnienie w Internecie
+❯ git push
+```
+---
+<!-- .element class="mermaid" -->
+<pre>
+%%{init: {'theme': 'light', 'themeVariables': { 'darkMode': false }}}%%
+pie title Stosunek programistów do PowerPointa
+    "Uwielbiam": 10
+	"Może być": 15
+	"Wolę pisać kod": 75
+</pre>
+</textarea>
 				</section>
 			</div>
 		</div>
+
+
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin@2.3.0/plugin/mermaid/mermaid.js"></script>
 
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
@@ -36,9 +82,13 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
+				autoAnimateEasing: 'ease-out',
+				autoAnimateDuration: 0.8,
+				autoAnimateUnmatched: true,
+				slideNumber: true,
+				mermaid: {},
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
 			});
 		</script>
 	</body>
